@@ -19,12 +19,22 @@ object Main extends App {
   }
   val builder = new StreamsBuilder()
   val textLines: KStream[String, String] = builder.stream[String, String]("salho-wordcount")
-  println()
-  val wordCounts: KTable[String, Long] = textLines
+  
+  def dump[T](value:T):T = {
+    println(value)
+    value
+  }
+
+  def dumpKV[K,V](k:K,v:V):(K,V) = {
+    println(s"key=$k, value=$v")
+    (k,v)
+  }
+
+  val wordCounts: KTable[String, Long] = textLines.map((a,b)=>dumpKV(a,b))
     .flatMapValues(textLine => textLine.toLowerCase.split("\\W+"))
     .groupBy((_, word) => word)
     .count()
-  wordCounts.toStream.to("salho-wordcount-output")
+  wordCounts.toStream.map((a,b)=>dumpKV(a,b)).map((k,v)=>(k,v.toString())).to("salho-wordcount-output")
 
   val streams: KafkaStreams = new KafkaStreams(builder.build(), config)
 

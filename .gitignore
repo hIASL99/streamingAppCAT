@@ -2,4 +2,7 @@
 .metals/
 .vscode/
 target/
-project/
+project/.bloop/
+project/project/
+project/target
+
