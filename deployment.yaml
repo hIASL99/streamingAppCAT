@@ -15,7 +15,7 @@ spec:
         - name: iot-pull-secret
       containers:
       - name: kafka-stream
-        image: registry.iot.fh-joanneum.at/hello-world:latest
+        image: registry.iot.fh-joanneum.at/word-counter-demo:latest
         resources:
           limits:
             memory: "500Mi"

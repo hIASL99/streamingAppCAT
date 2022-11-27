@@ -14,7 +14,7 @@ object Main extends App {
   val config: Properties = {
     val p = new Properties()
     p.put(StreamsConfig.APPLICATION_ID_CONFIG, "wordcount-scala-application")
-    val bootstrapServers = if (args.length > 0) args(0) else "iot-kafka.iot:9092"
+    val bootstrapServers = if (args.length > 0) args(0) else "iot-kafka-0.iot-kafka-headless.iot:9092,iot-kafka-1.iot-kafka-headless.iot:9092,iot-kafka-2.iot-kafka-headless.iot:9092"
     p.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers)
     p
   }

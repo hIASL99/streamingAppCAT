@@ -13,7 +13,7 @@ scalaVersion := "2.13.8"
 
 // It's possible to define many kinds of settings, such as:
 
-name := "hello-world"
+name := "word-counter-demo"
 organization := "at.fhj.ima"
 version := "0.1"
 
