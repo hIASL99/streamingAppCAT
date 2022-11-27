@@ -15,7 +15,7 @@ scalaVersion := "2.13.8"
 
 name := "hello-world"
 organization := "at.fhj.ima"
-version := "1.0"
+version := "0.1"
 
 
 enablePlugins(JavaAppPackaging)
@@ -35,11 +35,13 @@ resolvers += "Typesafe" at "https://repo.typesafe.com/typesafe/releases/"
 libraryDependencies += "org.scala-lang.modules" %% "scala-parser-combinators" % "2.1.1"
 libraryDependencies += "io.confluent" % "kafka-streams-avro-serde" % "7.3.0"
 libraryDependencies += "org.apache.kafka" %% "kafka-streams-scala" % "3.3.1"
+libraryDependencies += "org.slf4j" % "slf4j-api" % "2.0.5"
+libraryDependencies += "org.slf4j" % "slf4j-simple" % "2.0.5" 
 
 
 dockerRepository := Some("registry.iot.fh-joanneum.at")
 
-
+dockerUpdateLatest := true
 
 // Here, `libraryDependencies` is a set of dependencies, and by using `+=`,
 // we're adding the scala-parser-combinators dependency to the set of dependencies

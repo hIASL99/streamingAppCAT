@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-streaming-app
+spec:
+  selector:
+    matchLabels:
+      app: kafka-stream
+  template:
+    metadata:
+      labels:
+        app: kafka-stream
+    spec:
+      imagePullSecrets:
+        - name: iot-pull-secret
+      containers:
+      - name: kafka-stream
+        image: registry.iot.fh-joanneum.at/hello-world:latest
+        resources:
+          limits:
+            memory: "500Mi"
+            cpu: "500m"
+

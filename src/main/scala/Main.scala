@@ -10,6 +10,7 @@ object Main extends App {
   import org.apache.kafka.streams.scala.serialization.Serdes._
   import org.apache.kafka.streams.scala.ImplicitConversions._
 
+  println("Preparing")
   val config: Properties = {
     val p = new Properties()
     p.put(StreamsConfig.APPLICATION_ID_CONFIG, "wordcount-scala-application")
@@ -29,7 +30,7 @@ object Main extends App {
     println(s"key=$k, value=$v")
     (k,v)
   }
-
+  println("Starting")
   val wordCounts: KTable[String, Long] = textLines.map((a,b)=>dumpKV(a,b))
     .flatMapValues(textLine => textLine.toLowerCase.split("\\W+"))
     .groupBy((_, word) => word)
