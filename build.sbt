@@ -13,9 +13,9 @@ scalaVersion := "2.13.8"
 
 // It's possible to define many kinds of settings, such as:
 
-name := "word-counter-demo"
+name := "cat-streaming-app"
 organization := "at.fhj.ima"
-version := "0.1"
+version := "0.2"
 
 
 enablePlugins(JavaAppPackaging)
@@ -37,6 +37,9 @@ libraryDependencies += "io.confluent" % "kafka-streams-avro-serde" % "7.3.0"
 libraryDependencies += "org.apache.kafka" %% "kafka-streams-scala" % "3.3.1"
 libraryDependencies += "org.slf4j" % "slf4j-api" % "2.0.5"
 libraryDependencies += "org.slf4j" % "slf4j-simple" % "2.0.5" 
+libraryDependencies += "com.typesafe.play" %% "play-json" % "2.9.1"
+libraryDependencies += "org.apache.avro"  %  "avro"  %  "1.7.7"
+
 
 
 dockerRepository := Some("registry.iot.fh-joanneum.at")

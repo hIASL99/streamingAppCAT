@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-streaming-app
+  name: cat-streaming-app
 spec:
   selector:
     matchLabels:
@@ -15,7 +15,8 @@ spec:
         - name: iot-pull-secret
       containers:
       - name: kafka-stream
-        image: registry.iot.fh-joanneum.at/word-counter-demo:latest
+        image: registry.iot.fh-joanneum.at/cat-test:latest
+        imagePullPolicy: Always
         resources:
           limits:
             memory: "500Mi"
