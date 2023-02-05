@@ -1,13 +1,7 @@
-# Kafka Stream Word Counter Example (Scala)
+# Kafka Stream app for cat (Scala)
 
-This is a ready to run scala example for kafka streams API.
+This app is calcualting an index for the air quality in the room of the sensors. This air quality is calculated by referencing the air quality of the windowed mean of the last 24h. To be able to not trigger false alarms too often, the windowsed mean of the last 10 minustes are used to compare the air quality to the last 24h. 
+ 
+## Open window detection
 
-## Prepare VSC Code Server
-
-Install Metals Extension:
-
-![Metals Extension](pics/Install-Metals.png)
-
-After it is installed, try to create a new scala project, which will ask you to install Java:
-
-![Create new Scala Project](pics/Metals-New-Project.png)
+Due to seasons it was not possible to detect the opening of the windows with only the temperature sensor. The open windows detection, tries to detect sudden changes in the last 10 minutes.
